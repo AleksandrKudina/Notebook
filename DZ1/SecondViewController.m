@@ -9,14 +9,17 @@
 #import "SecondViewController.h"
 
 @interface SecondViewController ()
-
+//REVIEW: не забываем про инкапсуляцию
+@property (nonatomic, weak) IBOutlet UITextView * textView;
+@property (nonatomic, weak) IBOutlet UIBarButtonItem * addButton;
+@property (nonatomic, strong) NSMutableDictionary * messageDictionary;
 @end
 
 @implementation SecondViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
-    
     self.messageDictionary = [[NSMutableDictionary alloc] init];
 }
 
@@ -27,7 +30,5 @@
     [self.navigationController popViewControllerAnimated:YES]; // переходим на контроллер выше
     
 }
-
-
 
 @end

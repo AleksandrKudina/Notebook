@@ -17,15 +17,9 @@
 
 @interface SecondViewController : UIViewController
 
-@property (nonatomic, weak) IBOutlet UITextView * textView;
-@property (nonatomic, weak) IBOutlet UIBarButtonItem * addButton;
-@property (nonatomic, strong) NSMutableDictionary * messageDictionary;
-
 // создаем свойство - делегат. то есть объект которому будет передано сообщение о завершении добавления сообщения.
 // этот делегат может быть объектом любого класса ( UIView, NSDictionary и тп), но он должен соответствовать протоколу AddMessageProtocol
 @property (nonatomic, weak) id <AddMessageProtocol> delegate;
-
-
-
+// по делегату - отлично, все верно написал
 
 @end

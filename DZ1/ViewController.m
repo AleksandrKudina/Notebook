@@ -10,6 +10,13 @@
 #import "MyCell.h"
 #import "SecondViewController.h"
 
+
+//Хорошим тоном считается именовать свои классы с префиксом - NS,UI (на самом деле обязательно)
+//Apple советует использовать 3х-буквенный префикс, так как 2х зарезервирован под системные фреймворки
+//Я еще люблю сокрщать ViewController до VC (это необязательно)
+//И не забываем давать осмысленные имена классам
+//Как вариант - AKNNotesListVC (Alexander Kudina's Notebook Notes List View Controller)
+//Также удобнее всего использовать отдельные XIB-файлы для контроллеров
 @interface ViewController ()
 
 @end
@@ -17,10 +24,11 @@
 @implementation ViewController
 
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
+    self.messageArray = [NSMutableArray new];
     
-    self.messageArray = [[NSMutableArray alloc] init];
 }
 
 // метод вызываемый системой при переходе с использованием segue
@@ -38,9 +46,12 @@
 
 #pragma mark UITableViewDataSource
 
+//можно не возвращать количество секций, если они не нужны
+/*
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1; // задаем количество секций
-}
+    
+}*/
 
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return [self.messageArray count]; // задаем количество строк
@@ -55,8 +66,9 @@
     return cell; //возвращаем созданную ячейку
     
 }
+
 //удаление строки с анимацией
--(BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return YES;
 }
